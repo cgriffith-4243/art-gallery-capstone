@@ -1,0 +1,1436 @@
+{
+	"info": {
+		"_postman_id": "9d99cd58-13be-4afb-9584-b354ed251ee2",
+		"name": "udacity-capstone-gallery-live",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "curator",
+			"item": [
+				{
+					"name": "/mediums",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "1cbeeae9-3508-467a-ac96-b7da35a6bafe",
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {",
+									"    pm.response.to.have.status(201);",
+									"});",
+									"",
+									"pm.test(\"value contains new medium id\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.created).to.be.a('number');",
+									"    pm.environment.set(\"med_index\", jsonData.created);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Drawings\"\n}"
+						},
+						"url": {
+							"raw": "{{host}}/mediums",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"mediums"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/artworks",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d02384ff-49b4-49b8-90f1-87f5004b301f",
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {",
+									"    pm.response.to.have.status(201);",
+									"});",
+									"",
+									"pm.test(\"value contains new artwork id\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.created).to.be.a('number');",
+									"    pm.environment.set(\"art_index\", jsonData.created);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Lorem Ipsum\",\n    \"medium\": \"charcoal drawing\",\n    \"year\": 2011,\n    \"image_link\": \"https://i.picsum.photos/id/103/2592/1936.jpg?hmac=aC1FT3vX9bCVMIT-KXjHLhP6vImAcsyGCH49vVkAjPQ\",\n    \"medium_id\": {{med_index}}\n}"
+						},
+						"url": {
+							"raw": "{{host}}/artworks",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"artworks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/mediums",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "b8be9e35-89df-4b47-a6a0-55fe9e0bfeb3",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"value contains mediums array\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.mediums).to.be.an('array')",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/mediums",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"mediums"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/artworks",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "2c2491e9-9402-4679-a1a9-a413e06f1058",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"value contains artworks array\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.artworks).to.be.an('array')",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/artworks",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"artworks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/mediums/1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "73d8a830-589c-433d-ab61-aba4e9b39eb8",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"value contains edited medium id\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.updated).to.eql(pm.environment.get('med_index'));",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Mixed Media\"\n}"
+						},
+						"url": {
+							"raw": "{{host}}/mediums/{{med_index}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"mediums",
+								"{{med_index}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/artworks/1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "833f4997-560c-49e2-8562-405b2d0e1dc0",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"value contains edited artwork id\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.updated).to.eql(pm.environment.get('art_index'));",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Lorem Ipsum\",\n    \"medium\": \"graphite drawing\",\n    \"year\": 2012,\n    \"image_link\": \"https://i.picsum.photos/id/103/2592/1936.jpg?hmac=aC1FT3vX9bCVMIT-KXjHLhP6vImAcsyGCH49vVkAjPQ\",\n    \"medium_id\": {{med_index}}\n}"
+						},
+						"url": {
+							"raw": "{{host}}/artworks/{{art_index}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"artworks",
+								"{{art_index}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/mediums/1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "2b9fbd9f-f016-4538-a66c-2a917f332dce",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"value contains artworks array of medium\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.medium_id).to.eql(pm.environment.get('med_index'));",
+									"    pm.expect(jsonData.title).to.be.a('string')",
+									"    pm.expect(jsonData.artworks).to.be.an('array')",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/mediums/{{med_index}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"mediums",
+								"{{med_index}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/artworks/1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "8c186a98-64fb-499c-b8b0-f3888ad41ce1",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"value contains artwork data\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.artwork_id).to.eql(pm.environment.get('art_index'));",
+									"    pm.expect(jsonData.title).to.be.a('string');",
+									"    pm.expect(jsonData.medium).to.be.a('string');",
+									"    pm.expect(jsonData.year).to.be.a('number');",
+									"    pm.expect(jsonData.image_link).to.be.a('string');",
+									"    pm.expect(jsonData.medium_id).to.be.a('number');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/artworks/{{art_index}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"artworks",
+								"{{art_index}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/artworks/1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "52b0078e-6b47-468c-a698-d53de55be245",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"value contains deleted artwork id\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.deleted).to.eql(pm.environment.get('art_index'));",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/artworks/{{art_index}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"artworks",
+								"{{art_index}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/mediums/1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "3514d018-f6ec-4fba-a0aa-624dd5d8a182",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"value contains deleted medium id\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.deleted).to.eql(pm.environment.get('med_index'));",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/mediums/{{med_index}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"mediums",
+								"{{med_index}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/mediums",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "fad4a0c0-f55b-4ff4-949d-633caa913f5b",
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {",
+									"    pm.response.to.have.status(201);",
+									"});",
+									"",
+									"pm.test(\"value contains new medium id\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.created).to.be.a('number');",
+									"    pm.environment.set(\"med_index\", jsonData.created);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Paintings\"\n}"
+						},
+						"url": {
+							"raw": "{{host}}/mediums",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"mediums"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/artworks",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "8e3f179f-b7be-442f-9628-2ed7baea50bb",
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {",
+									"    pm.response.to.have.status(201);",
+									"});",
+									"",
+									"pm.test(\"value contains new artwork id\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.created).to.be.a('number');",
+									"    pm.environment.set(\"art_index\", jsonData.created);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Corpus Fabrica\",\n    \"medium\": \"oil painting\",\n    \"year\": 2015,\n    \"image_link\": \"https://i.picsum.photos/id/103/2592/1936.jpg?hmac=aC1FT3vX9bCVMIT-KXjHLhP6vImAcsyGCH49vVkAjPQ\",\n    \"medium_id\": {{med_index}}\n}"
+						},
+						"url": {
+							"raw": "{{host}}/artworks",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"artworks"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkdidWtzdFlscDIzbkhsMHJiN1BRbiJ9.eyJpc3MiOiJodHRwczovL3VkYWNpdHktY2Fwc3RvbmUtY2cudXMuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDVmZWRiODU0NTRlYTIwMDA2OWM4MTE2MyIsImF1ZCI6ImNhcHN0b25lLWFwaS1jZyIsImlhdCI6MTYwOTQzMTkxMCwiZXhwIjoxNjA5NTE4MzEwLCJhenAiOiJGU2FGZDBuRXRaZFc3Uk9BR3dhaEliY25ieldQeUExTyIsInNjb3BlIjoiIiwicGVybWlzc2lvbnMiOlsiZGVsZXRlOmFydHdvcmsiLCJkZWxldGU6bWVkaXVtIiwicGF0Y2g6YXJ0d29yayIsInBhdGNoOm1lZGl1bSIsInBvc3Q6YXJ0d29yayIsInBvc3Q6bWVkaXVtIl19.jJgpRsBT5qgZFH58HczIegMFKJMTH9zpYKAvQK75U8okP_0V2V_GMMcEr4cbJDliTSdVdAHbgvyGjLyxYATdkSZM-y6a1OsjBx5rzVzjnSjE7GDDoQlOc3WztAcVRscmxBYUNCWpQIiHHq39VVajzjJur03poXS1W_lca-ETYLg6nN0dt2ZCOO-Oq29uxy-7qv9odT8LaONGdWk6PCz53hY3n5HwMAC0kkYtIh9MgJqVVrAPEHctGHfi368PiJ5ll0i1bqO2IACzaM4kxqfNO6LrwghT4HZb6dM2ut3AuUiBMnU6ARdEwp-eZ5_GgC03i9OsGfPNRMvRrLfrnvSgag",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "f7f84138-6b92-44b9-8018-f184f08274b2",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "1f38c76a-1de9-44e9-afe0-ff2e379b1ab8",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "public",
+			"item": [
+				{
+					"name": "/mediums",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "e807601f-67e2-4738-98c2-a98be96e7344",
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Drawings\"\n}"
+						},
+						"url": {
+							"raw": "{{host}}/artworks",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"artworks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/artworks",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "c8749b45-12e8-43d2-abb5-257c2a7baf8f",
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Lorem Ipsum\",\n    \"medium\": \"charcoal drawing\",\n    \"year\": 2011,\n    \"image_link\": \"https://i.picsum.photos/id/103/2592/1936.jpg?hmac=aC1FT3vX9bCVMIT-KXjHLhP6vImAcsyGCH49vVkAjPQ\",\n    \"medium_id\": \"{{med_index}}\"\n}"
+						},
+						"url": {
+							"raw": "{{host}}/artworks",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"artworks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/mediums/2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "fb9cdec2-7ca7-4fa4-943b-ffb4a9384fc4",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"value contains artworks array of medium\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.medium_id).to.eql(pm.environment.get('med_index'));",
+									"    pm.expect(jsonData.title).to.be.a('string')",
+									"    pm.expect(jsonData.artworks).to.be.an('array')",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/mediums/{{med_index}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"mediums",
+								"{{med_index}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/artworks/2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "428c0a24-b427-44a1-94f4-dd26fdde4c37",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"value contains artwork data\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.artwork_id).to.eql(pm.environment.get('art_index'));",
+									"    pm.expect(jsonData.title).to.be.a('string');",
+									"    pm.expect(jsonData.medium).to.be.a('string');",
+									"    pm.expect(jsonData.year).to.be.a('number');",
+									"    pm.expect(jsonData.image_link).to.be.a('string');",
+									"    pm.expect(jsonData.medium_id).to.be.a('number');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/artworks/{{art_index}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"artworks",
+								"{{art_index}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/mediums/1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "1c6a3a5d-828b-4f2d-9189-4f68b56537bf",
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Mixed Media\"\n}"
+						},
+						"url": {
+							"raw": "{{host}}/mediums/{{med_index}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"mediums",
+								"{{med_index}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/artworks/1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "81cd8b1a-55d1-4447-91f3-8a27a3e40f7f",
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Lorem Ipsum\",\n    \"medium\": \"charcoal drawing\",\n    \"year\": 2011,\n    \"image_link\": \"https://i.picsum.photos/id/103/2592/1936.jpg?hmac=aC1FT3vX9bCVMIT-KXjHLhP6vImAcsyGCH49vVkAjPQ\",\n    \"medium_id\": \"{{med_index}}\"\n}"
+						},
+						"url": {
+							"raw": "{{host}}/artworks/{{art_index}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"artworks",
+								"{{art_index}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/mediums",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "0c4d3b65-7cc4-4a10-bfec-fb28f6b40a57",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"value contains mediums array\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.mediums).to.be.an('array')",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/mediums",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"mediums"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/artworks",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "71c26f94-9281-4e58-b9df-565c29187e7f",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"value contains artworks array\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.artworks).to.be.an('array')",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/artworks",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"artworks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/artworks/1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "5b4dfd8d-e11e-44b4-b595-aa390391d5cf",
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/artworks/{{art_index}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"artworks",
+								"{{art_index}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/mediums/1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "327324c2-8bef-40d6-b067-318bdedb6066",
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/mediums/{{med_index}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"mediums",
+								"{{med_index}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "artist",
+			"item": [
+				{
+					"name": "/mediums",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "6c74dec4-493f-475f-ade8-35fa8867b27e",
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Drawings\"\n}"
+						},
+						"url": {
+							"raw": "{{host}}/mediums",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"mediums"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/artworks",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "36d4ab1e-f145-44ef-b797-5d76e9e06218",
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {",
+									"    pm.response.to.have.status(201);",
+									"});",
+									"",
+									"pm.test(\"value contains new artwork id\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.created).to.be.a('number');",
+									"    pm.environment.set(\"art_index\", jsonData.created);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Lorem Tempora\",\n    \"medium\": \"oil painting\",\n    \"year\": 2013,\n    \"image_link\": \"https://i.picsum.photos/id/103/2592/1936.jpg?hmac=aC1FT3vX9bCVMIT-KXjHLhP6vImAcsyGCH49vVkAjPQ\",\n    \"medium_id\": {{med_index}}\n}"
+						},
+						"url": {
+							"raw": "{{host}}/artworks",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"artworks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/mediums/2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "9edf5631-9e3c-4854-9c19-3c1c8c787137",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"value contains artworks array of medium\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.medium_id).to.eql(pm.environment.get('med_index'));",
+									"    pm.expect(jsonData.title).to.be.a('string')",
+									"    pm.expect(jsonData.artworks).to.be.an('array')",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/mediums/{{med_index}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"mediums",
+								"{{med_index}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/artworks/3",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "7de43908-3f34-4c34-b122-abd2eafd73aa",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"value contains artwork data\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.artwork_id).to.eql(pm.environment.get('art_index'));",
+									"    pm.expect(jsonData.title).to.be.a('string');",
+									"    pm.expect(jsonData.medium).to.be.a('string');",
+									"    pm.expect(jsonData.year).to.be.a('number');",
+									"    pm.expect(jsonData.image_link).to.be.a('string');",
+									"    pm.expect(jsonData.medium_id).to.be.a('number');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/artworks/{{art_index}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"artworks",
+								"{{art_index}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/mediums/2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "7269a0cb-8b3c-47c9-9662-19c1883872c9",
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Mixed Media\"\n}"
+						},
+						"url": {
+							"raw": "{{host}}/mediums/{{med_index}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"mediums",
+								"{{med_index}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/artworks/3",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "bcf9d5dc-9e2c-4494-85f6-04f42a9af927",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"value contains edited artwork id\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.updated).to.eql(pm.environment.get('art_index'));",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Dictus Romanus\",\n    \"medium\": \"various\",\n    \"year\": 2014,\n    \"image_link\": \"https://i.picsum.photos/id/103/2592/1936.jpg?hmac=aC1FT3vX9bCVMIT-KXjHLhP6vImAcsyGCH49vVkAjPQ\",\n    \"medium_id\": \"{{med_index}}\"\n}"
+						},
+						"url": {
+							"raw": "{{host}}/artworks/{{art_index}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"artworks",
+								"{{art_index}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/mediums",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "08604a06-a7c5-426b-9dc1-e2445d411e17",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"value contains mediums array\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.mediums).to.be.an('array')",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/mediums",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"mediums"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/artworks",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "130fd3f9-741d-4e95-8d0a-b97ce023da9a",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"value contains artworks array\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.artworks).to.be.an('array')",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/artworks",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"artworks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/artworks/3",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "29c586d9-d633-4131-bb2c-da804a1ccfae",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"value contains deleted artwork id\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.deleted).to.eql(pm.environment.get('art_index'));",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/artworks/{{art_index}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"artworks",
+								"{{art_index}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/mediums/2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "971ed236-75b7-4d0d-99b7-d9e421360f01",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/mediums/{{med_index}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"mediums",
+								"{{med_index}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkdidWtzdFlscDIzbkhsMHJiN1BRbiJ9.eyJpc3MiOiJodHRwczovL3VkYWNpdHktY2Fwc3RvbmUtY2cudXMuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDVmZWRmYmNmMDgyODRiMDA2YmI1NzYwMCIsImF1ZCI6ImNhcHN0b25lLWFwaS1jZyIsImlhdCI6MTYwOTQzMjA5MywiZXhwIjoxNjA5NTE4NDkzLCJhenAiOiJGU2FGZDBuRXRaZFc3Uk9BR3dhaEliY25ieldQeUExTyIsInNjb3BlIjoiIiwicGVybWlzc2lvbnMiOlsiZGVsZXRlOmFydHdvcmsiLCJwYXRjaDphcnR3b3JrIiwicG9zdDphcnR3b3JrIl19.rwbSAyGw75DNJ7QkXMNPmTrrx96jUvGdtD8InLWrKn7zAi_4nZIAOhpeG9AChi6NAIhdyOw6Us05Lg7giNo8v55zsbXSWvFZDPbk0jdwnsSWmB8FpKk-mlkV4pWTPki8lo-ISqbWYaBlD-haRsBGiRCPbw9AJjxopRXwSp8WtY2On-0cQ9ILdROUJg40cKOrfn0h4AzJJ7p21dVpSzGwSzEp6ucKZTV10bPj2Pyb2I4bvaHuwkUc_Sl8M4X9UsUCSI3DtREV9PQ5oj7bN-png5i8V2Iy0gCcGgwOjnNsENn31_2TQvmDVpF6NRJjthNrG4mJF35q8qOXWmVf36o_yw",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "816c3870-0e5b-4e3a-b8d7-04259e78ce93",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "78044ca3-961d-457a-906f-deac8ebfaa2d",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "288a8d1c-5e57-408a-93a0-f52129a27fab",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "f0953b73-5156-4bcd-ba2a-91d4eca7d3d0",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "45964aaf-a196-47b4-b1e3-4c5216b1b66a",
+			"key": "host",
+			"value": "https://cgriffith-udacity-capstone.herokuapp.com"
+		},
+		{
+			"id": "e2211eb7-fcec-4ec5-a3b9-391a39115163",
+			"key": "art_index",
+			"value": "1"
+		},
+		{
+			"id": "95846020-2626-4778-a7ad-e3613e1b4a1d",
+			"key": "med_index",
+			"value": "1"
+		}
+	],
+	"protocolProfileBehavior": {}
+}

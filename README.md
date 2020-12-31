@@ -2,7 +2,9 @@
 
 ## About
 
-This API is designed to create and manage an gallery of artworks, categorized by medium. Access to endpoints is controlled by specific roles. Curators may manage which mediums and artworks are presented in the gallery, while Artists may add/update/remove their own works. Public access allows for unrestricted viewing of artwork information.
+This API is designed to help create and manage an Art Gallery, with the ability to specify and organize which mediums a Curator would like to showcase. Access to endpoints is controlled by specific roles. Curators may manage which mediums and artworks are presented in the gallery, while Artists may add/update/remove artworks. Public access allows for unrestricted viewing of artwork information.
+
+https://cgriffith-udacity-capstone.herokuapp.com
 
 #### Key Dependencies
 
@@ -23,84 +25,169 @@ Be sure to have the following dependencies installed
   $ source env/bin/activate
   ```
   
-2. Install the dependencies:
+2. Install the dependencies. Note that some may dependencies may require a manual installation
   ```
   $ pip install -r requirements.txt
   ```
 
-3. Run the development server:
+3. Configure setup.sh to your database for DATABASE_URI and TEST_URI. Then run the below commands
   ```
+  $ createdb gallery # use your db name
   $ . setup.sh
+  ```
+
+4. Run the development server for local development:
+  ```
   $ export FLASK_APP=manage.py
   $ export FLASK_ENV=development # enables debug mode
-  $ python3 manage.py
+  $ flask run --reload
 
-4. Backend is hosted at http://127.0.0.1:5000/
+5. Backend is hosted at http://127.0.0.1:5000/
 
 ## Testing
-To run the tests, run
+To run the tests for local development, run the following in command line
   ```
   $ . run_tests.sh
   ```
 
-# API
+Otherwise, utilize the Postman collection for testing endpoints on the heroku deployment: https://sample-heroku-cg.herokuapp.com
 
-User authentication is required to use the API. Two roles exist to facilitate this: Curator and ARtist. Below is an overview of the API
+  ```
+    udacity-capstone-gallery-live.postman_collection.json
+    udacity-capstone-gallery-live.postman_test_run.json
+  ```
+
+# Authentication
+
+User authentication is required to use the API. Two roles exist to facilitate this: Curator and ARtist. Below is an overview of how to use the API hosted on Heroku. More in depth descriptions of each endpoints are found after this section.
+
+Required JWT Tokens may be found inside setup.sh 
+
+# Roles
+This API has two main roles:
+
+## Curator
+Curators are able to manage mediums and artworks in the gallery. They have access to the following permissions:
+`post:medium` `patch:medium` `delete:medium` `post:artwork` `patch:artwork` `delete:artwork` 
+
+## Artist
+Curators are only able to manage artworks in the gallery. They have access to the following permissions:
+`post:artwork` `patch:artwork` `delete:artwork`
 
 ## Read - Public access
-
-#### GET /mediums
-
-```
-```
-
-#### GET /mediums/<int:medium_id>
-
-```
-```
 
 #### GET /artworks
 
 ```
+curl -X GET \
+  https://cgriffith-udacity-capstone.herokuapp.com/artworks \
+  -H 'Authorization: Bearer <INSERT_YOUR_TOKEN>'
 ```
 
 #### GET /artworks/<int:artwork_id>
 
 ```
+curl -X GET \
+  https://cgriffith-udacity-capstone.herokuapp.com/artworks/1 \
+  -H 'Authorization: Bearer <INSERT_YOUR_TOKEN>'
 ```
 
-## Manage Artworks - Artist access
-
-#### POST /mediums
+#### GET /mediums
 
 ```
+curl -X GET \
+  https://cgriffith-udacity-capstone.herokuapp.com/mediums \
+  -H 'Authorization: Bearer <INSERT_YOUR_TOKEN>'
 ```
 
-#### PATCH /medium/<int:medium_id>
+#### GET /mediums/<int:medium_id>
 
 ```
+curl -X GET \
+  https://cgriffith-udacity-capstone.herokuapp.com/mediums/1 \
+  -H 'Authorization: Bearer <INSERT_YOUR_TOKEN>'
 ```
 
-#### DELETE /mediums/<int:medium_id>
+## Manage Artworks - Curator and Artist access
+
+#### POST /artworks
+`post:artwork`
 
 ```
+curl -X POST \
+  https://cgriffith-udacity-capstone.herokuapp.com/artworks \
+  -H 'Authorization: Bearer <INSERT_YOUR_TOKEN>' \
+-H 'Content-Type: application/json' \
+  -d '{
+    "title": "Lorem Ipsum",
+    "medium": "charcoal drawing",
+    "year": 2011,
+    "image_link": "https://i.picsum.photos/id/103/2592/1936.jpg?hmac=aC1FT3vX9bCVMIT-KXjHLhP6vImAcsyGCH49vVkAjPQ",
+    "medium_id": 1
+}'
+```
+
+#### PATCH /artworks/<int:artwork_id>
+`patch:artwork`
+
+```
+curl -X PATCH \
+  https://cgriffith-udacity-capstone.herokuapp.com/artworks/1 \
+  -H 'Authorization: Bearer <INSERT_YOUR_TOKEN>' \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "title": "Lorem Ipsum",
+    "medium": "graphite drawing",
+    "year": 2012,
+    "image_link": "https://i.picsum.photos/id/103/2592/1936.jpg?hmac=aC1FT3vX9bCVMIT-KXjHLhP6vImAcsyGCH49vVkAjPQ",
+    "medium_id": 1
+}'
+```
+
+#### DELETE /artworks/<int:artwork_id>
+`delete:artwork`
+
+```
+curl -X DELETE \
+  https://cgriffith-udacity-capstone.herokuapp.com/artworks/1 \
+  -H 'Authorization: Bearer <INSERT_YOUR_TOKEN> ' \
 ```
 
 ## Manage Mediums - Curator access
 
-#### POST /artworks
+#### POST /mediums
+`post:medium`
 
 ```
+curl -X POST \
+  https://cgriffith-udacity-capstone.herokuapp.com/mediums \
+  -H 'Authorization: Bearer <INSERT_YOUR_TOKEN>' \
+-H 'Content-Type: application/json' \
+  -d '{
+    "title": "Drawings"
+}'
 ```
 
-#### PATCH /artworks/<int:artwork_id>
+#### PATCH /medium/<int:medium_id>
+`patch:medium`
 
 ```
+curl -X PATCH \
+  https://cgriffith-udacity-capstone.herokuapp.com/mediums/1 \
+  -H 'Authorization: Bearer <INSERT_YOUR_TOKEN>' \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "title": "Mixed Media"
+}'
 ```
 
-#### DELETE /artworks/<int:artwork_id>
+#### DELETE /mediums/<int:medium_id>
+`delete:medium`
 
 ```
+curl -X DELETE \
+  https://cgriffith-udacity-capstone.herokuapp.com/mediums/1 \
+  -H 'Authorization: Bearer <INSERT_YOUR_TOKEN> ' \
 ```
 
 # Full Endpoint Descriptions
@@ -178,6 +265,7 @@ The API will return the following errors:
 ```
 
 #### POST /mediums
+- Requires post:medium permission
 - Creates a new medium and inserts it into the database
 - Request Arguments: 
 
@@ -232,6 +320,7 @@ The API will return the following errors:
 ```
 
 #### PATCH /mediums/<int:medium_id>
+- Requires patch:medium permission
 - Updates the values of an existing medium in the database based on the specified medium_id
 - Request Arguments:
 
@@ -259,6 +348,7 @@ The API will return the following errors:
 ```
 
 #### DELETE /mediums/<int:medium_id>
+- Requires delete:medium permission
 - Deletes an existing medium in the database based on the specified medium_id
 - Request Arguments: 
 
@@ -295,6 +385,7 @@ The API will return the following errors:
 ```
 
 #### POST /artworks
+- Requires post:artwork permission
 - Creates a new artwork and inserts it into the database
 - Request Arguments: 
 
@@ -362,6 +453,7 @@ The API will return the following errors:
 ```
 
 #### PATCH /artworks/<int:artwork_id>
+- Requires patch:artwork permission
 - Updates the values of an existing artwork in the database
 - Request Arguments: 
 
@@ -399,6 +491,7 @@ The API will return the following errors:
 ```
 
 #### DELETE /artworks/<int:artwork_id>
+- Requires delete:artwork permission
 - Deletes an existing artwork in the database based on the specified artwork_id
 - Request Arguments: 
 
