@@ -41,6 +41,7 @@ Be sure to have the following dependencies installed
   $ export FLASK_APP=manage.py
   $ export FLASK_ENV=development # enables debug mode
   $ flask run --reload
+  ```
 
 5. Backend is hosted at http://127.0.0.1:5000/
 
