@@ -46,26 +46,20 @@ Be sure to have the following dependencies installed
 5. Backend is hosted at http://127.0.0.1:5000/
 
 ## Testing
-To run the tests for local development, run the following in command line
+To run the tests for local development, run the following in command line.
   ```
   $ . run_tests.sh
   ```
 
-Otherwise, utilize the Postman collection for testing endpoints on the heroku deployment: https://cgriffith-udacity-capstone.herokuapp.com
+Otherwise, the provided Postman collection can be used to test the API endpoints and authentication.
 
   ```
-    udacity-capstone-gallery-live.postman_collection.json
-    udacity-capstone-gallery-live.postman_test_run.json
+    [udacity-capstone-gallery-live.postman_collection.json](udacity-capstone-gallery-live.postman_collection.json)
+    [udacity-capstone-gallery-live.postman_test_run.json](udacity-capstone-gallery-live.postman_test_run.json)
   ```
-
-# Authentication
-
-User authentication is required to use the API. Two roles exist to facilitate this: Curator and ARtist. Below is an overview of how to use the API hosted on Heroku. More in depth descriptions of each endpoints are found after this section.
-
-Required JWT Tokens may be found inside setup.sh 
 
 # Roles
-This API has two main roles:
+This API has two main roles: Curator and Artist.
 
 ### Curator
 Curators are able to manage mediums and artworks in the gallery. They have access to the following permissions:
@@ -74,6 +68,12 @@ Curators are able to manage mediums and artworks in the gallery. They have acces
 ### Artist
 Curators are only able to manage artworks in the gallery. They have access to the following permissions:
 `post:artwork` `patch:artwork` `delete:artwork`
+
+# Authentication
+
+User authentication is required to use the API endpoints. Below are examples of curl commands that can be used to test these endpoints. The Postman collection [udacity-capstone-gallery-live.postman_collection.json](udacity-capstone-gallery-live.postman_collection.json) may also be used to test the endpoints on the heroku deployment at https://cgriffith-udacity-capstone.herokuapp.com.
+
+The required JWT Tokens may be found inside setup.sh 
 
 ## Read - Public access
 
