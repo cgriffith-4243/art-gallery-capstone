@@ -51,7 +51,7 @@ To run the tests for local development, run the following in command line
   $ . run_tests.sh
   ```
 
-Otherwise, utilize the Postman collection for testing endpoints on the heroku deployment: https://sample-heroku-cg.herokuapp.com
+Otherwise, utilize the Postman collection for testing endpoints on the heroku deployment: https://cgriffith-udacity-capstone.herokuapp.com
 
   ```
     udacity-capstone-gallery-live.postman_collection.json
