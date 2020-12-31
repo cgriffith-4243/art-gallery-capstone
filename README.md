@@ -30,7 +30,7 @@ Be sure to have the following dependencies installed
   $ pip install -r requirements.txt
   ```
 
-3. Configure setup.sh to your database for DATABASE_URI and TEST_URI. Then run the below commands
+3. Configure [setup.sh](setup.sh) to your database for DATABASE_URI and TEST_URI. Then run the below commands
   ```
   $ createdb gallery # use your db name
   $ . setup.sh
@@ -73,7 +73,7 @@ Curators are only able to manage artworks in the gallery. They have access to th
 
 User authentication is required to use the API endpoints. Below are examples of curl commands that can be used to test these endpoints. The Postman collection [udacity-capstone-gallery-live.postman_collection.json](udacity-capstone-gallery-live.postman_collection.json) may also be used to test the endpoints on the heroku deployment at https://cgriffith-udacity-capstone.herokuapp.com.
 
-The required JWT Tokens may be found inside setup.sh 
+The required JWT Tokens may be found inside [setup.sh](setup.sh) 
 
 ## Read - Public access
 
