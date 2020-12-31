@@ -67,11 +67,11 @@ Required JWT Tokens may be found inside setup.sh
 # Roles
 This API has two main roles:
 
-## Curator
+### Curator
 Curators are able to manage mediums and artworks in the gallery. They have access to the following permissions:
 `post:medium` `patch:medium` `delete:medium` `post:artwork` `patch:artwork` `delete:artwork` 
 
-## Artist
+### Artist
 Curators are only able to manage artworks in the gallery. They have access to the following permissions:
 `post:artwork` `patch:artwork` `delete:artwork`
 
