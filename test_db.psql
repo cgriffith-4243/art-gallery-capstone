@@ -1,0 +1,174 @@
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 11.3
+-- Dumped by pg_dump version 11.3
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET xmloption = content;
+SET client_min_messages = warning;
+SET row_security = off;
+
+SET default_tablespace = '';
+
+SET default_with_oids = false;
+
+--
+-- Name: "Medium"; Type: TABLE; Schema: public; Owner: caryn
+--
+
+CREATE TABLE public."Medium" (
+    id integer NOT NULL,
+    title text
+);
+
+
+ALTER TABLE public."Medium" OWNER TO caryn;
+
+--
+-- Name: "Medium_id_seq"; Type: SEQUENCE; Schema: public; Owner: caryn
+--
+
+CREATE SEQUENCE public."Medium_id_seq"
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public."Medium_id_seq" OWNER TO caryn;
+
+--
+-- Name: "Medium_id_seq"; Type: SEQUENCE OWNED BY; Schema: public; Owner: caryn
+--
+
+ALTER SEQUENCE public."Medium_id_seq" OWNED BY public."Medium".id;
+
+
+--
+-- Name: "Artwork"; Type: TABLE; Schema: public; Owner: caryn
+--
+
+CREATE TABLE public."Artwork" (
+    id integer NOT NULL,
+    title text,
+    medium text,
+    year integer,
+    image_link text,
+    medium_id integer NOT NULL
+);
+
+
+ALTER TABLE public."Artwork" OWNER TO caryn;
+
+--
+-- Name: "Artwork_id_seq"; Type: SEQUENCE; Schema: public; Owner: caryn
+--
+
+CREATE SEQUENCE public."Artwork_id_seq"
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public."Artwork_id_seq" OWNER TO caryn;
+
+--
+-- Name: "Artwork_id_seq"; Type: SEQUENCE OWNED BY; Schema: public; Owner: caryn
+--
+
+ALTER SEQUENCE public."Artwork_id_seq" OWNED BY public."Artwork".id;
+
+
+--
+-- Name: "Medium" id; Type: DEFAULT; Schema: public; Owner: caryn
+--
+
+ALTER TABLE ONLY public."Medium" ALTER COLUMN id SET DEFAULT nextval('public."Medium_id_seq"'::regclass);
+
+
+--
+-- Name: "Artwork" id; Type: DEFAULT; Schema: public; Owner: caryn
+--
+
+ALTER TABLE ONLY public."Artwork" ALTER COLUMN id SET DEFAULT nextval('public."Artwork_id_seq"'::regclass);
+
+
+--
+-- Data for Name: "Medium"; Type: TABLE DATA; Schema: public; Owner: caryn
+--
+
+COPY public."Medium" (id, title) FROM stdin;
+1	Drawing
+2	Painting
+3	Mixed Media
+4	Installations
+5	Photography
+\.
+
+
+--
+-- Data for Name: "Artwork"; Type: TABLE DATA; Schema: public; Owner: caryn
+--
+
+COPY public."Artwork" (id, title, medium, year, image_link, medium_id) FROM stdin;
+1	Lorem Ipsum	oil painting	2015	https://i.picsum.photos/id/100/2500/1656.jpg?hmac=gWyN-7ZB32rkAjMhKXQgdHOIBRHyTSgzuOK6U0vXb1w	2
+2	Dictus Romanus	acrylic painting	2014	https://i.picsum.photos/id/100/2500/1656.jpg?hmac=gWyN-7ZB32rkAjMhKXQgdHOIBRHyTSgzuOK6U0vXb1w	2
+3	Corpus Fabrica	charcoal drawing	2011	https://i.picsum.photos/id/100/2500/1656.jpg?hmac=gWyN-7ZB32rkAjMhKXQgdHOIBRHyTSgzuOK6U0vXb1w	1
+\.
+
+
+--
+-- Name: "Medium_id_seq"; Type: SEQUENCE SET; Schema: public; Owner: caryn
+--
+
+SELECT pg_catalog.setval('public."Medium_id_seq"', 6, true);
+
+
+--
+-- Name: "Artwork_id_seq"; Type: SEQUENCE SET; Schema: public; Owner: caryn
+--
+
+SELECT pg_catalog.setval('public."Artwork_id_seq"', 23, true);
+
+
+--
+-- Name: "Medium" "Medium_pkey"; Type: CONSTRAINT; Schema: public; Owner: caryn
+--
+
+ALTER TABLE ONLY public."Medium"
+    ADD CONSTRAINT "Medium_pkey" PRIMARY KEY (id);
+
+
+--
+-- Name: "Artwork" "Artwork_pkey"; Type: CONSTRAINT; Schema: public; Owner: caryn
+--
+
+ALTER TABLE ONLY public."Artwork"
+    ADD CONSTRAINT "Artwork_pkey" PRIMARY KEY (id);
+
+
+--
+-- Name: "Artwork" medium_id; Type: FK CONSTRAINT; Schema: public; Owner: caryn
+--
+
+ALTER TABLE ONLY public."Artwork"
+    ADD CONSTRAINT medium_id FOREIGN KEY (medium_id) REFERENCES public."Medium"(id) ON UPDATE CASCADE ON DELETE SET NULL;
+
+
+--
+-- PostgreSQL database dump complete
+--
+
