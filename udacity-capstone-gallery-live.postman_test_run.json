@@ -1,7 +1,7 @@
 {
-	"id": "3c23899f-24de-4235-8580-5891cec56430",
+	"id": "d00e29d2-5076-4b11-9f97-843803341177",
 	"name": "udacity-capstone-gallery-live",
-	"timestamp": "2020-12-31T22:05:46.987Z",
+	"timestamp": "2021-01-02T07:49:24.482Z",
 	"collection_id": "9d99cd58-13be-4afb-9584-b354ed251ee2",
 	"folder_id": 0,
 	"environment_id": "0",
@@ -12,7 +12,7 @@
 			"id": "202d5c67-4b36-407f-86c0-e14f6dfe8a0c",
 			"name": "/mediums",
 			"url": "https://cgriffith-udacity-capstone.herokuapp.com/mediums",
-			"time": 523,
+			"time": 676,
 			"responseCode": {
 				"code": 201,
 				"name": "CREATED"
@@ -32,7 +32,7 @@
 				}
 			},
 			"times": [
-				523
+				676
 			],
 			"allTests": [
 				{
@@ -45,7 +45,7 @@
 			"id": "22116607-43d0-48d7-afd9-5a96bea589e9",
 			"name": "/artworks",
 			"url": "https://cgriffith-udacity-capstone.herokuapp.com/artworks",
-			"time": 189,
+			"time": 151,
 			"responseCode": {
 				"code": 201,
 				"name": "CREATED"
@@ -65,7 +65,7 @@
 				}
 			},
 			"times": [
-				189
+				151
 			],
 			"allTests": [
 				{
@@ -78,7 +78,7 @@
 			"id": "9ce97f71-d07b-4247-89d3-d53e8b5f9d40",
 			"name": "/mediums",
 			"url": "https://cgriffith-udacity-capstone.herokuapp.com/mediums",
-			"time": 109,
+			"time": 107,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -98,7 +98,7 @@
 				}
 			},
 			"times": [
-				109
+				107
 			],
 			"allTests": [
 				{
@@ -111,7 +111,7 @@
 			"id": "27cde6bc-4637-4047-b914-c6e926600ef9",
 			"name": "/artworks",
 			"url": "https://cgriffith-udacity-capstone.herokuapp.com/artworks",
-			"time": 106,
+			"time": 123,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -131,7 +131,7 @@
 				}
 			},
 			"times": [
-				106
+				123
 			],
 			"allTests": [
 				{
@@ -143,8 +143,8 @@
 		{
 			"id": "3402eb37-7a39-47c8-a34f-27c841b1a165",
 			"name": "/mediums/1",
-			"url": "https://cgriffith-udacity-capstone.herokuapp.com/mediums/15",
-			"time": 149,
+			"url": "https://cgriffith-udacity-capstone.herokuapp.com/mediums/19",
+			"time": 127,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -164,7 +164,7 @@
 				}
 			},
 			"times": [
-				149
+				127
 			],
 			"allTests": [
 				{
@@ -176,8 +176,8 @@
 		{
 			"id": "c1c073da-7269-4123-b092-9c318b42adc3",
 			"name": "/artworks/1",
-			"url": "https://cgriffith-udacity-capstone.herokuapp.com/artworks/22",
-			"time": 161,
+			"url": "https://cgriffith-udacity-capstone.herokuapp.com/artworks/28",
+			"time": 139,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -197,7 +197,7 @@
 				}
 			},
 			"times": [
-				161
+				139
 			],
 			"allTests": [
 				{
@@ -209,8 +209,8 @@
 		{
 			"id": "c899c5be-7c32-459c-89cf-fbe8b8b9986a",
 			"name": "/mediums/1",
-			"url": "https://cgriffith-udacity-capstone.herokuapp.com/mediums/15",
-			"time": 112,
+			"url": "https://cgriffith-udacity-capstone.herokuapp.com/mediums/19",
+			"time": 104,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -230,7 +230,7 @@
 				}
 			},
 			"times": [
-				112
+				104
 			],
 			"allTests": [
 				{
@@ -242,7 +242,259 @@
 		{
 			"id": "2dfdb713-86fb-45a6-a705-a1d46a439083",
 			"name": "/artworks/1",
-			"url": "https://cgriffith-udacity-capstone.herokuapp.com/artworks/22",
+			"url": "https://cgriffith-udacity-capstone.herokuapp.com/artworks/28",
+			"time": 96,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"value contains artwork data": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"value contains artwork data": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				96
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"value contains artwork data": true
+				}
+			]
+		},
+		{
+			"id": "33bb30b0-6b7f-445a-9df3-9240dccf1d99",
+			"name": "/artworks/1",
+			"url": "https://cgriffith-udacity-capstone.herokuapp.com/artworks/28",
+			"time": 137,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"value contains deleted artwork id": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"value contains deleted artwork id": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				137
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"value contains deleted artwork id": true
+				}
+			]
+		},
+		{
+			"id": "f289f2a3-66fc-4fc7-ae29-5b6ca0dcbe6e",
+			"name": "/mediums/1",
+			"url": "https://cgriffith-udacity-capstone.herokuapp.com/mediums/19",
+			"time": 122,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"value contains deleted medium id": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"value contains deleted medium id": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				122
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"value contains deleted medium id": true
+				}
+			]
+		},
+		{
+			"id": "5c93079a-c93e-4fc7-bbba-42bcc7becd3e",
+			"name": "/mediums",
+			"url": "https://cgriffith-udacity-capstone.herokuapp.com/mediums",
+			"time": 127,
+			"responseCode": {
+				"code": 201,
+				"name": "CREATED"
+			},
+			"tests": {
+				"Status code is 201": true,
+				"value contains new medium id": true
+			},
+			"testPassFailCounts": {
+				"Status code is 201": {
+					"pass": 1,
+					"fail": 0
+				},
+				"value contains new medium id": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				127
+			],
+			"allTests": [
+				{
+					"Status code is 201": true,
+					"value contains new medium id": true
+				}
+			]
+		},
+		{
+			"id": "01ae883b-4195-42e9-880c-13da31ae8ed3",
+			"name": "/artworks",
+			"url": "https://cgriffith-udacity-capstone.herokuapp.com/artworks",
+			"time": 133,
+			"responseCode": {
+				"code": 201,
+				"name": "CREATED"
+			},
+			"tests": {
+				"Status code is 201": true,
+				"value contains new artwork id": true
+			},
+			"testPassFailCounts": {
+				"Status code is 201": {
+					"pass": 1,
+					"fail": 0
+				},
+				"value contains new artwork id": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				133
+			],
+			"allTests": [
+				{
+					"Status code is 201": true,
+					"value contains new artwork id": true
+				}
+			]
+		},
+		{
+			"id": "bdf4396a-36c5-46cf-ab73-3ef75788de6d",
+			"name": "/mediums",
+			"url": "https://cgriffith-udacity-capstone.herokuapp.com/artworks",
+			"time": 89,
+			"responseCode": {
+				"code": 401,
+				"name": "UNAUTHORIZED"
+			},
+			"tests": {
+				"Status code is 401": true
+			},
+			"testPassFailCounts": {
+				"Status code is 401": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				89
+			],
+			"allTests": [
+				{
+					"Status code is 401": true
+				}
+			]
+		},
+		{
+			"id": "9df4b958-273c-4655-9992-3ca8aa1906b9",
+			"name": "/artworks",
+			"url": "https://cgriffith-udacity-capstone.herokuapp.com/artworks",
+			"time": 90,
+			"responseCode": {
+				"code": 401,
+				"name": "UNAUTHORIZED"
+			},
+			"tests": {
+				"Status code is 401": true
+			},
+			"testPassFailCounts": {
+				"Status code is 401": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				90
+			],
+			"allTests": [
+				{
+					"Status code is 401": true
+				}
+			]
+		},
+		{
+			"id": "85885003-a92a-485d-b9ab-0a780743b5e4",
+			"name": "/mediums/2",
+			"url": "https://cgriffith-udacity-capstone.herokuapp.com/mediums/20",
+			"time": 94,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"value contains artworks array of medium": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"value contains artworks array of medium": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				94
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"value contains artworks array of medium": true
+				}
+			]
+		},
+		{
+			"id": "a2ce0218-a3dd-4f18-9c5f-187828d82920",
+			"name": "/artworks/2",
+			"url": "https://cgriffith-udacity-capstone.herokuapp.com/artworks/29",
 			"time": 103,
 			"responseCode": {
 				"code": 200,
@@ -273,262 +525,10 @@
 			]
 		},
 		{
-			"id": "33bb30b0-6b7f-445a-9df3-9240dccf1d99",
-			"name": "/artworks/1",
-			"url": "https://cgriffith-udacity-capstone.herokuapp.com/artworks/22",
-			"time": 173,
-			"responseCode": {
-				"code": 200,
-				"name": "OK"
-			},
-			"tests": {
-				"Status code is 200": true,
-				"value contains deleted artwork id": true
-			},
-			"testPassFailCounts": {
-				"Status code is 200": {
-					"pass": 1,
-					"fail": 0
-				},
-				"value contains deleted artwork id": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				173
-			],
-			"allTests": [
-				{
-					"Status code is 200": true,
-					"value contains deleted artwork id": true
-				}
-			]
-		},
-		{
-			"id": "f289f2a3-66fc-4fc7-ae29-5b6ca0dcbe6e",
-			"name": "/mediums/1",
-			"url": "https://cgriffith-udacity-capstone.herokuapp.com/mediums/15",
-			"time": 159,
-			"responseCode": {
-				"code": 200,
-				"name": "OK"
-			},
-			"tests": {
-				"Status code is 200": true,
-				"value contains deleted medium id": true
-			},
-			"testPassFailCounts": {
-				"Status code is 200": {
-					"pass": 1,
-					"fail": 0
-				},
-				"value contains deleted medium id": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				159
-			],
-			"allTests": [
-				{
-					"Status code is 200": true,
-					"value contains deleted medium id": true
-				}
-			]
-		},
-		{
-			"id": "5c93079a-c93e-4fc7-bbba-42bcc7becd3e",
-			"name": "/mediums",
-			"url": "https://cgriffith-udacity-capstone.herokuapp.com/mediums",
-			"time": 178,
-			"responseCode": {
-				"code": 201,
-				"name": "CREATED"
-			},
-			"tests": {
-				"Status code is 201": true,
-				"value contains new medium id": true
-			},
-			"testPassFailCounts": {
-				"Status code is 201": {
-					"pass": 1,
-					"fail": 0
-				},
-				"value contains new medium id": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				178
-			],
-			"allTests": [
-				{
-					"Status code is 201": true,
-					"value contains new medium id": true
-				}
-			]
-		},
-		{
-			"id": "01ae883b-4195-42e9-880c-13da31ae8ed3",
-			"name": "/artworks",
-			"url": "https://cgriffith-udacity-capstone.herokuapp.com/artworks",
-			"time": 174,
-			"responseCode": {
-				"code": 201,
-				"name": "CREATED"
-			},
-			"tests": {
-				"Status code is 201": true,
-				"value contains new artwork id": true
-			},
-			"testPassFailCounts": {
-				"Status code is 201": {
-					"pass": 1,
-					"fail": 0
-				},
-				"value contains new artwork id": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				174
-			],
-			"allTests": [
-				{
-					"Status code is 201": true,
-					"value contains new artwork id": true
-				}
-			]
-		},
-		{
-			"id": "bdf4396a-36c5-46cf-ab73-3ef75788de6d",
-			"name": "/mediums",
-			"url": "https://cgriffith-udacity-capstone.herokuapp.com/artworks",
-			"time": 96,
-			"responseCode": {
-				"code": 401,
-				"name": "UNAUTHORIZED"
-			},
-			"tests": {
-				"Status code is 401": true
-			},
-			"testPassFailCounts": {
-				"Status code is 401": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				96
-			],
-			"allTests": [
-				{
-					"Status code is 401": true
-				}
-			]
-		},
-		{
-			"id": "9df4b958-273c-4655-9992-3ca8aa1906b9",
-			"name": "/artworks",
-			"url": "https://cgriffith-udacity-capstone.herokuapp.com/artworks",
-			"time": 98,
-			"responseCode": {
-				"code": 401,
-				"name": "UNAUTHORIZED"
-			},
-			"tests": {
-				"Status code is 401": true
-			},
-			"testPassFailCounts": {
-				"Status code is 401": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				98
-			],
-			"allTests": [
-				{
-					"Status code is 401": true
-				}
-			]
-		},
-		{
-			"id": "85885003-a92a-485d-b9ab-0a780743b5e4",
-			"name": "/mediums/2",
-			"url": "https://cgriffith-udacity-capstone.herokuapp.com/mediums/16",
-			"time": 128,
-			"responseCode": {
-				"code": 200,
-				"name": "OK"
-			},
-			"tests": {
-				"Status code is 200": true,
-				"value contains artworks array of medium": true
-			},
-			"testPassFailCounts": {
-				"Status code is 200": {
-					"pass": 1,
-					"fail": 0
-				},
-				"value contains artworks array of medium": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				128
-			],
-			"allTests": [
-				{
-					"Status code is 200": true,
-					"value contains artworks array of medium": true
-				}
-			]
-		},
-		{
-			"id": "a2ce0218-a3dd-4f18-9c5f-187828d82920",
-			"name": "/artworks/2",
-			"url": "https://cgriffith-udacity-capstone.herokuapp.com/artworks/23",
-			"time": 105,
-			"responseCode": {
-				"code": 200,
-				"name": "OK"
-			},
-			"tests": {
-				"Status code is 200": true,
-				"value contains artwork data": true
-			},
-			"testPassFailCounts": {
-				"Status code is 200": {
-					"pass": 1,
-					"fail": 0
-				},
-				"value contains artwork data": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				105
-			],
-			"allTests": [
-				{
-					"Status code is 200": true,
-					"value contains artwork data": true
-				}
-			]
-		},
-		{
 			"id": "791538bf-f5f4-4bc6-a456-a2eea623d616",
 			"name": "/mediums/1",
-			"url": "https://cgriffith-udacity-capstone.herokuapp.com/mediums/16",
-			"time": 93,
+			"url": "https://cgriffith-udacity-capstone.herokuapp.com/mediums/20",
+			"time": 89,
 			"responseCode": {
 				"code": 401,
 				"name": "UNAUTHORIZED"
@@ -543,7 +543,7 @@
 				}
 			},
 			"times": [
-				93
+				89
 			],
 			"allTests": [
 				{
@@ -554,7 +554,100 @@
 		{
 			"id": "ee87f5b6-f91f-442a-b1d8-98ca65511be6",
 			"name": "/artworks/1",
-			"url": "https://cgriffith-udacity-capstone.herokuapp.com/artworks/23",
+			"url": "https://cgriffith-udacity-capstone.herokuapp.com/artworks/29",
+			"time": 88,
+			"responseCode": {
+				"code": 401,
+				"name": "UNAUTHORIZED"
+			},
+			"tests": {
+				"Status code is 401": true
+			},
+			"testPassFailCounts": {
+				"Status code is 401": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				88
+			],
+			"allTests": [
+				{
+					"Status code is 401": true
+				}
+			]
+		},
+		{
+			"id": "1280df74-b352-49d2-a90e-3de260270ccc",
+			"name": "/mediums",
+			"url": "https://cgriffith-udacity-capstone.herokuapp.com/mediums",
+			"time": 98,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"value contains mediums array": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"value contains mediums array": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				98
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"value contains mediums array": true
+				}
+			]
+		},
+		{
+			"id": "96f48e23-f59b-4335-9c79-1a78129f54c1",
+			"name": "/artworks",
+			"url": "https://cgriffith-udacity-capstone.herokuapp.com/artworks",
+			"time": 91,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"value contains artworks array": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"value contains artworks array": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				91
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"value contains artworks array": true
+				}
+			]
+		},
+		{
+			"id": "741536a4-5739-46ec-b331-e3e69878ba01",
+			"name": "/artworks/1",
+			"url": "https://cgriffith-udacity-capstone.herokuapp.com/artworks/29",
 			"time": 94,
 			"responseCode": {
 				"code": 401,
@@ -579,103 +672,10 @@
 			]
 		},
 		{
-			"id": "1280df74-b352-49d2-a90e-3de260270ccc",
-			"name": "/mediums",
-			"url": "https://cgriffith-udacity-capstone.herokuapp.com/mediums",
-			"time": 106,
-			"responseCode": {
-				"code": 200,
-				"name": "OK"
-			},
-			"tests": {
-				"Status code is 200": true,
-				"value contains mediums array": true
-			},
-			"testPassFailCounts": {
-				"Status code is 200": {
-					"pass": 1,
-					"fail": 0
-				},
-				"value contains mediums array": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				106
-			],
-			"allTests": [
-				{
-					"Status code is 200": true,
-					"value contains mediums array": true
-				}
-			]
-		},
-		{
-			"id": "96f48e23-f59b-4335-9c79-1a78129f54c1",
-			"name": "/artworks",
-			"url": "https://cgriffith-udacity-capstone.herokuapp.com/artworks",
-			"time": 99,
-			"responseCode": {
-				"code": 200,
-				"name": "OK"
-			},
-			"tests": {
-				"Status code is 200": true,
-				"value contains artworks array": true
-			},
-			"testPassFailCounts": {
-				"Status code is 200": {
-					"pass": 1,
-					"fail": 0
-				},
-				"value contains artworks array": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				99
-			],
-			"allTests": [
-				{
-					"Status code is 200": true,
-					"value contains artworks array": true
-				}
-			]
-		},
-		{
-			"id": "741536a4-5739-46ec-b331-e3e69878ba01",
-			"name": "/artworks/1",
-			"url": "https://cgriffith-udacity-capstone.herokuapp.com/artworks/23",
-			"time": 93,
-			"responseCode": {
-				"code": 401,
-				"name": "UNAUTHORIZED"
-			},
-			"tests": {
-				"Status code is 401": true
-			},
-			"testPassFailCounts": {
-				"Status code is 401": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				93
-			],
-			"allTests": [
-				{
-					"Status code is 401": true
-				}
-			]
-		},
-		{
 			"id": "c18c2e4a-e793-464a-9f1a-9822544f2e8a",
 			"name": "/mediums/1",
-			"url": "https://cgriffith-udacity-capstone.herokuapp.com/mediums/16",
-			"time": 96,
+			"url": "https://cgriffith-udacity-capstone.herokuapp.com/mediums/20",
+			"time": 90,
 			"responseCode": {
 				"code": 401,
 				"name": "UNAUTHORIZED"
@@ -690,7 +690,7 @@
 				}
 			},
 			"times": [
-				96
+				90
 			],
 			"allTests": [
 				{
@@ -702,7 +702,7 @@
 			"id": "f5a789b2-49ed-4cfa-a7c6-9f9bce1303c6",
 			"name": "/mediums",
 			"url": "https://cgriffith-udacity-capstone.herokuapp.com/mediums",
-			"time": 170,
+			"time": 113,
 			"responseCode": {
 				"code": 401,
 				"name": "UNAUTHORIZED"
@@ -717,7 +717,7 @@
 				}
 			},
 			"times": [
-				170
+				113
 			],
 			"allTests": [
 				{
@@ -729,7 +729,7 @@
 			"id": "259d66c6-08b7-4040-9f79-8f676a7a779e",
 			"name": "/artworks",
 			"url": "https://cgriffith-udacity-capstone.herokuapp.com/artworks",
-			"time": 154,
+			"time": 133,
 			"responseCode": {
 				"code": 201,
 				"name": "CREATED"
@@ -749,7 +749,7 @@
 				}
 			},
 			"times": [
-				154
+				133
 			],
 			"allTests": [
 				{
@@ -761,8 +761,8 @@
 		{
 			"id": "8213281c-8a10-4ff5-8a8f-d7ebae71ce95",
 			"name": "/mediums/2",
-			"url": "https://cgriffith-udacity-capstone.herokuapp.com/mediums/16",
-			"time": 116,
+			"url": "https://cgriffith-udacity-capstone.herokuapp.com/mediums/20",
+			"time": 100,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -782,7 +782,7 @@
 				}
 			},
 			"times": [
-				116
+				100
 			],
 			"allTests": [
 				{
@@ -794,8 +794,8 @@
 		{
 			"id": "a0267dcb-57bf-4601-b792-e05b45a3d065",
 			"name": "/artworks/3",
-			"url": "https://cgriffith-udacity-capstone.herokuapp.com/artworks/24",
-			"time": 108,
+			"url": "https://cgriffith-udacity-capstone.herokuapp.com/artworks/30",
+			"time": 93,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -815,7 +815,7 @@
 				}
 			},
 			"times": [
-				108
+				93
 			],
 			"allTests": [
 				{
@@ -827,8 +827,8 @@
 		{
 			"id": "7441d870-dc44-457a-9f3c-5b8df872491e",
 			"name": "/mediums/2",
-			"url": "https://cgriffith-udacity-capstone.herokuapp.com/mediums/16",
-			"time": 134,
+			"url": "https://cgriffith-udacity-capstone.herokuapp.com/mediums/20",
+			"time": 121,
 			"responseCode": {
 				"code": 401,
 				"name": "UNAUTHORIZED"
@@ -843,7 +843,7 @@
 				}
 			},
 			"times": [
-				134
+				121
 			],
 			"allTests": [
 				{
@@ -854,8 +854,8 @@
 		{
 			"id": "40858615-2e4b-41a1-b807-d1255fcef4a7",
 			"name": "/artworks/3",
-			"url": "https://cgriffith-udacity-capstone.herokuapp.com/artworks/24",
-			"time": 145,
+			"url": "https://cgriffith-udacity-capstone.herokuapp.com/artworks/30",
+			"time": 126,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -875,7 +875,7 @@
 				}
 			},
 			"times": [
-				145
+				126
 			],
 			"allTests": [
 				{
@@ -888,7 +888,7 @@
 			"id": "613bc8d2-8e27-4da2-989b-fff1f7c4b05c",
 			"name": "/mediums",
 			"url": "https://cgriffith-udacity-capstone.herokuapp.com/mediums",
-			"time": 118,
+			"time": 96,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -908,7 +908,7 @@
 				}
 			},
 			"times": [
-				118
+				96
 			],
 			"allTests": [
 				{
@@ -921,7 +921,7 @@
 			"id": "897077e8-4c78-4568-b75e-673bcf3b76a9",
 			"name": "/artworks",
 			"url": "https://cgriffith-udacity-capstone.herokuapp.com/artworks",
-			"time": 109,
+			"time": 95,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -941,7 +941,7 @@
 				}
 			},
 			"times": [
-				109
+				95
 			],
 			"allTests": [
 				{
@@ -953,8 +953,8 @@
 		{
 			"id": "a671a37f-4e29-4c6b-a3a4-1df340a2e5cc",
 			"name": "/artworks/3",
-			"url": "https://cgriffith-udacity-capstone.herokuapp.com/artworks/24",
-			"time": 173,
+			"url": "https://cgriffith-udacity-capstone.herokuapp.com/artworks/30",
+			"time": 124,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -974,7 +974,7 @@
 				}
 			},
 			"times": [
-				173
+				124
 			],
 			"allTests": [
 				{
@@ -986,8 +986,8 @@
 		{
 			"id": "b543c3b4-1ac4-4f05-bda7-18871fc630c1",
 			"name": "/mediums/2",
-			"url": "https://cgriffith-udacity-capstone.herokuapp.com/mediums/16",
-			"time": 132,
+			"url": "https://cgriffith-udacity-capstone.herokuapp.com/mediums/20",
+			"time": 121,
 			"responseCode": {
 				"code": 401,
 				"name": "UNAUTHORIZED"
@@ -1002,7 +1002,7 @@
 				}
 			},
 			"times": [
-				132
+				121
 			],
 			"allTests": [
 				{
@@ -1012,7 +1012,7 @@
 		}
 	],
 	"count": 1,
-	"totalTime": 4503,
+	"totalTime": 4090,
 	"collection": {
 		"requests": [
 			{
