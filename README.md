@@ -283,7 +283,7 @@ The API will return the following errors:
 ```
 
 #### POST /mediums
-- Requires post:medium permission
+- Requires `post:medium` permission
 - Creates a new medium and inserts it into the database
 - Request Arguments: 
 
@@ -338,7 +338,7 @@ The API will return the following errors:
 ```
 
 #### PATCH /mediums/<int:medium_id>
-- Requires patch:medium permission
+- Requires `patch:medium` permission
 - Updates the values of an existing medium in the database based on the specified medium_id
 - Request Arguments:
 
@@ -366,7 +366,7 @@ The API will return the following errors:
 ```
 
 #### DELETE /mediums/<int:medium_id>
-- Requires delete:medium permission
+- Requires `delete:medium` permission
 - Deletes an existing medium in the database based on the specified medium_id
 - Request Arguments: 
 
@@ -403,7 +403,7 @@ The API will return the following errors:
 ```
 
 #### POST /artworks
-- Requires post:artwork permission
+- Requires `post:artwork` permission
 - Creates a new artwork and inserts it into the database
 - Request Arguments: 
 
@@ -471,7 +471,7 @@ The API will return the following errors:
 ```
 
 #### PATCH /artworks/<int:artwork_id>
-- Requires patch:artwork permission
+- Requires `patch:artwork` permission
 - Updates the values of an existing artwork in the database
 - Request Arguments: 
 
@@ -509,7 +509,7 @@ The API will return the following errors:
 ```
 
 #### DELETE /artworks/<int:artwork_id>
-- Requires delete:artwork permission
+- Requires `delete:artwork` permission
 - Deletes an existing artwork in the database based on the specified artwork_id
 - Request Arguments: 
 
