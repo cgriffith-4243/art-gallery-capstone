@@ -2,9 +2,25 @@
 
 ## About
 
-This API is designed to help create and manage an Art Gallery, with the ability to specify and organize which mediums a Curator would like to showcase. Access to endpoints is controlled by specific roles. Curators may manage which mediums and artworks are presented in the gallery, while Artists may add/update/remove artworks. Public access allows for unrestricted viewing of artwork information.
+This API is designed to help create and manage an Art Gallery, with the ability to specify and organize which mediums would like to be showcased.
+
+Any user can send a GET request in order to retrieve entries stored in the gallery database.
+Access to POST, PATCH, DELETE endpoints is controlled by specific roles, being Curators and Artists. Curators may add/update/remove artworks which mediums and artworks in the gallery, while Artists may add/update/remove artworks. For more information about endpoints, see the 'Full Endpoint Descriptions' section of this README.
+
+Mediums refers to the different categories of art a gallery may showcase. Examples include drawings, paintings, mixed media, etc.
+Artworks refers to individual artworks. Information Artwork entries store include title, medium description, year created, image link, and the id of what Medium entry it belongs to in the gallery.
+
+All endpoints need to be tested using curl or postman since there is no frontend for the app yet.
 
 https://cgriffith-udacity-capstone.herokuapp.com
+
+## Getting Started
+
+### Installing Dependencies
+
+#### Python 3.7
+
+Follow instructions to install the latest version of python for your platform in the [python docs](https://docs.python.org/3/using/unix.html#getting-and-installing-the-latest-version-of-python)
 
 #### Key Dependencies
 
@@ -25,7 +41,7 @@ Be sure to have the following dependencies installed
   $ source env/bin/activate
   ```
   
-2. Install the dependencies. Note that some may dependencies may require a manual installation
+2. Install PIP dependencies. Note that some may dependencies may require a manual installation
   ```
   $ pip install -r requirements.txt
   ```
@@ -57,6 +73,7 @@ Otherwise, the provided Postman collection can be used to test the API endpoints
     [udacity-capstone-gallery-live.postman_collection.json](udacity-capstone-gallery-live.postman_collection.json)
     [udacity-capstone-gallery-live.postman_test_run.json](udacity-capstone-gallery-live.postman_test_run.json)
   ```
+For individual curl commands, see the 'Authentication and Testing' section of this README.
 
 # Roles
 This API has two main roles: Curator and Artist.
@@ -69,7 +86,7 @@ Curators are able to manage mediums and artworks in the gallery. They have acces
 Curators are only able to manage artworks in the gallery. They have access to the following permissions:
 `post:artwork` `patch:artwork` `delete:artwork`
 
-# Authentication
+# Authentication and Testing
 
 User authentication is required to use the API endpoints. Below are examples of curl commands that can be used to test these endpoints. The Postman collection [udacity-capstone-gallery-live.postman_collection.json](udacity-capstone-gallery-live.postman_collection.json) may also be used to test the endpoints on the heroku deployment at https://cgriffith-udacity-capstone.herokuapp.com.
 
