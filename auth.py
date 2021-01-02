@@ -10,7 +10,7 @@ AUTH0_DOMAIN = os.environ['AUTH0_DOMAIN']
 ALGORITHMS = os.environ['ALGORITHMS']
 API_AUDIENCE = os.environ['API_AUDIENCE']
 
-## AuthError Exception
+# AuthError Exception
 '''
 AuthError Exception
 '''
@@ -20,7 +20,7 @@ class AuthError(Exception):
         self.status_code = status_code
 
 
-## Auth Header
+# Auth Header
 def get_token_auth_header():
     auth_header = request.headers.get('Authorization', None)
     if not auth_header:
@@ -29,7 +29,7 @@ def get_token_auth_header():
             'description': 'authorization header expected'
         }, 401)
 
-    header_parts = auth_header.split(' ')  
+    header_parts = auth_header.split(' ')
     if len(header_parts) <= 1:
         raise AuthError({
             'code': 'invalid_header',
@@ -47,6 +47,7 @@ def get_token_auth_header():
         }, 401)
 
     return header_parts[1]
+
 
 '''
     @INPUTS
@@ -66,11 +67,13 @@ def check_permissions(permission, payload):
         }, 401)
     return True
 
+
 '''
     @INPUTS
         token: a json web token (string)
 
-    NOTE! Source for this implementation found here: https://auth0.com/docs/quickstart/backend/python/01-authorization
+    NOTE! Source for this implementation found here:
+        https://auth0.com/docs/quickstart/backend/python/01-authorization
 '''
 def verify_decode_jwt(token):
     jsonurl = urlopen(f'https://{AUTH0_DOMAIN}/.well-known/jwks.json')
@@ -121,8 +124,6 @@ def verify_decode_jwt(token):
         'code': 'invalid_header',
         'description': 'unable to find the appropriate key'
     }, 401)
-
-
 
 
 '''

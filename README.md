@@ -204,7 +204,7 @@ The API will return the following errors:
     {
         "success": False,
         "error": 400,
-        "message": "Bad request"
+        "message": "bad request"
     }
     ```
 
@@ -215,7 +215,7 @@ The API will return the following errors:
     {
         "success": False,
         "error": 404,
-        "message": "Resource not found"
+        "message": "resource not found"
     }
     ```
 
@@ -226,7 +226,7 @@ The API will return the following errors:
     {
         "success": False,
         "error": 422,
-        "message": "Unprocessable"
+        "message": "unprocessable"
     }
     ```
 
@@ -237,7 +237,7 @@ The API will return the following errors:
     {
         "success": False,
         "error": 500,
-        "message": "Internal server error"
+        "message": "internal server error"
     }
     ```
 
