@@ -75,7 +75,7 @@ Otherwise, the provided Postman collection can be used to test the API endpoints
   ```
 For individual curl commands, see the 'Authentication and Testing' section of this README.
 
-# Roles
+## Roles
 This API has two main roles: Curator and Artist.
 
 ### Curator
@@ -86,7 +86,7 @@ Curators are able to manage mediums and artworks in the gallery. They have acces
 Curators are only able to manage artworks in the gallery. They have access to the following permissions:
 `post:artwork` `patch:artwork` `delete:artwork`
 
-# Authentication and Testing
+## Authentication and Testing
 
 User authentication is required to use the API endpoints. Below are examples of curl commands that can be used to test these endpoints. The Postman collection [udacity-capstone-gallery-live.postman_collection.json](udacity-capstone-gallery-live.postman_collection.json) may also be used to test the endpoints on the heroku deployment at https://cgriffith-udacity-capstone.herokuapp.com.
 
