@@ -503,7 +503,7 @@ The API will return the following errors:
 
 ```
 {
-    "created": 3,
+    "updated": 3,
     "success": true
 }
 ```
