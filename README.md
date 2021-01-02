@@ -70,6 +70,7 @@ To run the tests for local development, run the following in command line.
 Otherwise, the provided Postman collection can be used to test the API endpoints and authentication.
 
   [udacity-capstone-gallery-live.postman_collection.json](udacity-capstone-gallery-live.postman_collection.json)
+  
   [udacity-capstone-gallery-live.postman_test_run.json](udacity-capstone-gallery-live.postman_test_run.json)
     
 For individual curl commands, see the 'Authentication and Testing' section of this README.
